@@ -1,0 +1,60 @@
+.navbar {
+    white-space: nowrap;
+}
+
+.navbar .container {
+    max-width: 100%;
+    justify-content: space-between;
+}
+
+.table-responsive {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+table {
+    text-align: center;
+    width: 100%;
+    table-layout: auto;
+    word-wrap: break-word;
+    font-size: 1.1rem;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+header{
+    background-color: #007bff;
+    color: white;
+}
+
+footer{
+    background-color: #007bff;
+    padding: 15px;
+    color: white;
+    text-align: center;
+}
+
+footer nav{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
