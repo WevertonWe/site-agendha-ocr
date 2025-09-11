@@ -1,0 +1,143 @@
+[
+    {
+        "id_lote": "784ec83e",
+        "nome_beneficiario": "Desconhecido",
+        "cpf_beneficiario": "000.000.000-00",
+        "status_processamento": "Falha na extração de Nome/CPF. Cadastro Selenium não iniciado.",
+        "data_processamento": "04/06/2025 15:38:01",
+        "arquivos_originais": [
+            "Cadastros 05-05-2025.pdf"
+        ],
+        "dados_extraidos_completos": {
+            "nome_completo": "Desconhecido",
+            "cpf": "000.000.000-00",
+            "data_nascimento": "Não encontrada",
+            "nis_titular": "1",
+            "nome_titular_nis": "LAIDLRIALRINLAL IMNLA ES",
+            "comunidade": "Não encontrada"
+        }
+    },
+    {
+        "id_lote": "60ddab1d",
+        "nome_beneficiario": "[FI [JC IS 21H] IGIA GIRL TELL JAIÉMOEIS LDIOL JMIRISICIR AA",
+        "cpf_beneficiario": "000.000.000-00",
+        "status_processamento": "Falha na extração de Nome/CPF. Cadastro Selenium não iniciado.",
+        "data_processamento": "04/06/2025 15:41:57",
+        "arquivos_originais": [
+            "WhatsApp Image 2025-05-19 at 10.14.30.jpeg"
+        ],
+        "dados_extraidos_completos": {
+            "nome_completo": "[FI [JC IS 21H] IGIA GIRL TELL JAIÉMOEIS LDIOL JMIRISICIR AA",
+            "cpf": "000.000.000-00",
+            "data_nascimento": "Não encontrada",
+            "nis_titular": "Não encontrado",
+            "nome_titular_nis": "Não preenchido ou igual ao beneficiário",
+            "comunidade": "Não encontrada"
+        }
+    },
+    {
+        "id_lote": "b3e026a4",
+        "nome_beneficiario": "[AGILI IDE! NÁ CLÁCI RA DOS SPRDRAS J",
+        "cpf_beneficiario": "000.000.000-00",
+        "status_processamento": "Falha na extração de Nome/CPF. Cadastro Selenium não iniciado.",
+        "data_processamento": "04/06/2025 15:43:54",
+        "arquivos_originais": [
+            "Adelice Pereira CADASTRADO.pdf"
+        ],
+        "dados_extraidos_completos": {
+            "nome_completo": "[AGILI IDE! NÁ CLÁCI RA DOS SPRDRAS J",
+            "cpf": "000.000.000-00",
+            "data_nascimento": "Não encontrada",
+            "nis_titular": "Não encontrado",
+            "nome_titular_nis": "Não preenchido ou igual ao beneficiário",
+            "comunidade": "Não encontrada"
+        }
+    },
+    {
+        "id_lote": "971d5d02",
+        "nome_beneficiario": "Desconhecido",
+        "cpf_beneficiario": "000.000.000-00",
+        "status_processamento": "Falha na extração de Nome/CPF. Cadastro Selenium não iniciado.",
+        "data_processamento": "04/06/2025 15:47:51",
+        "arquivos_originais": [
+            "Adelice Pereira CADASTRADO.pdf"
+        ],
+        "dados_extraidos_completos": {
+            "nome_completo": "Desconhecido",
+            "cpf": "000.000.000-00",
+            "data_nascimento": "Não encontrada",
+            "nis_titular": "Não encontrado",
+            "nome_titular_nis": "Não preenchido ou igual ao beneficiário",
+            "comunidade": "Não encontrada"
+        }
+    },
+    {
+        "id_lote": "12ecf40b",
+        "nome_beneficiario": "[TI/!LIS OI] IGIA BIRILIC LU! IALVIEIS DIO! IVIRISICI MT",
+        "cpf_beneficiario": "000.000.000-00",
+        "status_processamento": "Falha na extração de Nome/CPF. Cadastro Selenium não iniciado.",
+        "data_processamento": "09/06/2025 10:06:57",
+        "arquivos_originais": [
+            "WhatsApp Image 2025-05-19 at 10.14.30.jpeg"
+        ],
+        "dados_extraidos_completos": {
+            "nome_completo": "[TI/!LIS OI] IGIA BIRILIC LU! IALVIEIS DIO! IVIRISICI MT",
+            "cpf": "000.000.000-00",
+            "data_nascimento": "Não encontrada",
+            "nis_titular": "Não encontrado",
+            "nome_titular_nis": "Não preenchido ou igual ao beneficiário",
+            "comunidade": "Não encontrada"
+        }
+    },
+    {
+        "id_lote": "97d54e2c",
+        "nome_beneficiario": "[TI/!LIS OI] IGIA BIRILIC LU! IALVIEIS DIO! IVIRISICI MT",
+        "cpf_beneficiario": "000.000.000-00",
+        "status_processamento": "Falha na extração de Nome/CPF. Cadastro Selenium não iniciado.",
+        "data_processamento": "09/06/2025 10:07:49",
+        "arquivos_originais": [
+            "WhatsApp Image 2025-05-19 at 10.14.30.jpeg"
+        ],
+        "dados_extraidos_completos": {
+            "nome_completo": "[TI/!LIS OI] IGIA BIRILIC LU! IALVIEIS DIO! IVIRISICI MT",
+            "cpf": "000.000.000-00",
+            "data_nascimento": "Não encontrada",
+            "nis_titular": "Não encontrado",
+            "nome_titular_nis": "Não preenchido ou igual ao beneficiário",
+            "comunidade": "Não encontrada"
+        }
+    },
+    {
+        "id_lote": "2b8ba91c",
+        "nome_beneficiario": "[TI/!LIS OI] IGIA BIRILIC LU! IALVIEIS DIO! IVIRISICI MT",
+        "cpf_beneficiario": "000.000.000-00",
+        "status_processamento": "Falha na extração de Nome/CPF. Cadastro Selenium não iniciado.",
+        "data_processamento": "09/06/2025 14:52:22",
+        "arquivos_originais": [
+            "WhatsApp Image 2025-05-19 at 10.14.30.jpeg"
+        ],
+        "dados_extraidos_completos": {
+            "nome_completo": "[TI/!LIS OI] IGIA BIRILIC LU! IALVIEIS DIO! IVIRISICI MT",
+            "cpf": "000.000.000-00",
+            "data_nascimento": "Não encontrada",
+            "nis_titular": "Não encontrado",
+            "nome_titular_nis": "Não preenchido ou igual ao beneficiário",
+            "comunidade": "Não encontrada"
+        }
+    },
+    {
+        "id_lote": "826ca967",
+        "nome_beneficiario": "dA GR A",
+        "cpf_beneficiario": "000.000.000-00",
+        "status_processamento": "Falha na extração de Nome/CPF via ROI. Cadastro Selenium não iniciado.",
+        "data_processamento": "09/06/2025 15:38:13",
+        "arquivos_originais": [
+            "WhatsApp Image 2025-05-19 at 10.14.30.jpeg"
+        ],
+        "dados_extraidos_completos": {
+            "nome_completo": "dA GR A",
+            "sexo": "Masculino",
+            "cpf": "000.000.000-00"
+        }
+    }
+]

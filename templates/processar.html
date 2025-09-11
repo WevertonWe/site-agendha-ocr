@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processar Beneficiário - Água que Alimenta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Cabeçalho -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container d-flex align-items-center">
+                <div class="d-flex align-items-center">
+                    <img src="/static/imagens/logo-agendha.jpg" alt="Logo Agendha" width="50" height="50" class="me-2">
+                    <img src="/static/imagens/logo-agua.jpeg" alt="Logo Água que Alimenta" width="50" height="50" class="me-2">
+                    <span class="navbar-brand mb-0">Agendha - Relatórios de Água que Alimenta</span>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mapa">Mapa</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/processar">Adicionar Beneficiário</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="flex-grow-1 container mt-4">
+        <h1>Adicionar Beneficiário via OCR</h1>
+
+        <!-- Formulário de Upload -->
+        <form id="uploadForm" class="mb-4">
+            <div class="mb-3">
+                <label for="fileInput" class="form-label">Selecione o arquivo (PDF ou imagem):</label>
+                <input type="file" class="form-control" id="fileInput" multiple required>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+
+        <!-- Painel de Status -->
+        <h2>Status em tempo real</h2>
+        <div id="statusLog" class="border p-3 mb-4" style="height: 200px; overflow-y: auto; background: #f8f9fa;">
+            <p>Aguardando envio...</p>
+        </div>
+
+        <!-- Histórico -->
+        <h2>Histórico de Beneficiários Processados</h2>
+        <div class="table-responsive">
+            <table id="historico" class="table table-bordered table-hover align-middle">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Status</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4">Carregando histórico...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-primary py-3">
+        <div class="container text-center">
+            <nav>
+                <a href="https://docs.google.com/spreadsheets/d/1_vPh76hpATEItZHuS6H0jpR6IEAUwPWmBo39gZrjBoU/edit?gid=1209402383">Formulário</a>
+                <a href="https://docs.google.com/spreadsheets/d/1_vPh76hpATEItZHuS6H0jpR6IEAUwPWmBo39gZrjBoU/edit?gid=47508731">Dados KML</a>
+                <a href="https://docs.google.com/spreadsheets/d/1_vPh76hpATEItZHuS6H0jpR6IEAUwPWmBo39gZrjBoU/edit?gid=857693121">Consolidado</a>
+                <a href="https://docs.google.com/spreadsheets/d/1_vPh76hpATEItZHuS6H0jpR6IEAUwPWmBo39gZrjBoU/edit?gid=1030268031">Cronograma Geral</a>
+                <a href="https://docs.google.com/spreadsheets/d/1_vPh76hpATEItZHuS6H0jpR6IEAUwPWmBo39gZrjBoU/edit?gid=0">Cronograma Cisternas</a>
+                <a href="https://docs.google.com/spreadsheets/d/1_vPh76hpATEItZHuS6H0jpR6IEAUwPWmBo39gZrjBoU/edit?gid=1834648215">Capacitação Beneficiários</a>
+                <a href="https://docs.google.com/spreadsheets/d/1_vPh76hpATEItZHuS6H0jpR6IEAUwPWmBo39gZrjBoU/edit?gid=1834648215">Monitoramentos</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="module" src="/static/js/processar.js"></script>
+</body>
+
+</html>

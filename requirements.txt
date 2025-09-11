@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+jinja2
+pytesseract
+pdf2image
+pillow
+python-multipart
+gspread
+oauth2client
+selenium
+opencv-python
+numpy
