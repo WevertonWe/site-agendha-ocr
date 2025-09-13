@@ -12,11 +12,14 @@ import datetime
 import asyncio
 import logging
 import re
+import sqlite3
 from typing import List, Dict, Any
 
 import pytesseract  # Importado aqui para configurar tesseract_cmd
 from pdf2image import convert_from_path  # type: ignore
 from PIL import Image
+from pathlib import Path
+
 
 # Imports para OpenCV
 import cv2
@@ -50,8 +53,18 @@ app = FastAPI(
 os.makedirs("static", exist_ok=True)
 os.makedirs("templates", exist_ok=True)
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+# Constrói o caminho absoluto para a pasta 'app' onde este arquivo
+# (main.py) está
+BASE_DIR = Path(__file__).resolve().parent
+
+# Monta os caminhos para as pastas 'static' e 'templates' usando o caminho base
+
+app.mount(
+    "/static",
+    StaticFiles(directory=BASE_DIR / "static"),
+    name="static"
+)
+templates = Jinja2Templates(directory=BASE_DIR / "templates")
 
 # --- Constantes e Configurações do Projeto ---
 UPLOAD_FOLDER = "uploads"
@@ -201,9 +214,17 @@ manager = ConnectionManager()
 # --- Rotas HTML ---
 
 
-@app.get("/", response_class=HTMLResponse, summary="Página Inicial")
-async def get_home(request: Request):
-    """Renderiza a página inicial (index.html)."""
+# NOVA ROTA PRINCIPAL (/) PARA O DASHBOARD
+@app.get("/", response_class=HTMLResponse, summary="Página do Dashboard Consolidado")
+async def get_dashboard(request: Request):
+    """Renderiza a página principal do dashboard (dashboard.html)."""
+    return templates.TemplateResponse("dashboard.html", {"request": request})
+
+
+# NOVA ROTA (/dados-brutos) PARA A TABELA ANTIGA
+@app.get("/dados-brutos", response_class=HTMLResponse, summary="Página da Tabela Completa")
+async def get_tabela_completa(request: Request):
+    """Renderiza a página da tabela completa de beneficiários (index.html)."""
     return templates.TemplateResponse("index.html", {"request": request})
 
 
@@ -223,6 +244,105 @@ async def get_processar_pagina(request: Request):
     Renderiza a página de processamento de beneficiários (processar.html).
     """
     return templates.TemplateResponse("processar.html", {"request": request})
+
+# --- Endpoint de API para os Dados ---
+
+
+@app.get("/api/beneficiarios", response_class=JSONResponse)
+def get_beneficiarios():
+    """
+    Busca todos os registros de beneficiários no banco de dados SQLite
+    e os retorna como uma lista de dicionários (JSON).
+    """
+    db_path = "agendha.db"
+    try:
+        logging.info(
+            "API: Conectando ao banco de dados para buscar beneficiários...")
+        conexao = sqlite3.connect(db_path)
+        # O Row_factory faz com que o resultado venha como dicionários,
+        # o que é perfeito para converter para JSON.
+        conexao.row_factory = sqlite3.Row
+        cursor = conexao.cursor()
+
+        # Executa a consulta para pegar todos os dados da tabela
+        cursor.execute("SELECT * FROM beneficiarios")
+        registros = cursor.fetchall()
+
+        # Converte a lista de registros do banco em uma lista de dicionários
+        # que pode ser enviada como JSON
+        lista_beneficiarios = [dict(registro) for registro in registros]
+
+        logging.info(
+            "API: %d registros encontrados e enviados.", len(
+                lista_beneficiarios)
+        )
+        return lista_beneficiarios
+
+    except sqlite3.Error as e:
+        logging.error(f"API: Erro ao acessar o banco de dados: {e}")
+        # Retorna uma resposta de erro no formato JSON
+        return JSONResponse(
+            status_code=500,
+            content={"error": "Erro interno ao buscar os dados."}
+        )
+    finally:
+        if 'conexao' in locals() and conexao:
+            conexao.close()
+            logging.info(
+                "API: %s registros encontrados e enviados.",
+                len(lista_beneficiarios)
+            )
+
+
+@app.get("/api/consolidado/atividades", response_class=JSONResponse)
+def get_consolidado_atividades():
+    """
+    Gera um resumo de atividades por município.
+    Assume que os dados de município já estão padronizados no banco.
+    """
+    db_path = "agendha.db"
+    conexao = None
+    try:
+        logging.info("API: Gerando dados consolidados (v3)...")
+        conexao = sqlite3.connect(db_path)
+        conexao.row_factory = sqlite3.Row
+        cursor = conexao.cursor()
+
+        # Consulta SQL agora muito mais simples!
+        query = """
+        SELECT
+            municipio,
+            COUNT(*) AS total_beneficiarios,
+            SUM(CASE WHEN status = 'EM CADASTRO' THEN 1 ELSE 0 END) AS em_cadastro,
+            SUM(CASE WHEN status = 'CADASTRADO' THEN 1 ELSE 0 END) AS cadastrado,
+            SUM(CASE WHEN status = 'A CONSTRUIR' THEN 1 ELSE 0 END) AS a_construir,
+            SUM(CASE WHEN status = 'CONSTRUÍDA' THEN 1 ELSE 0 END) AS construida,
+            SUM(CASE WHEN status NOT IN (
+                'EM CADASTRO', 'CADASTRADO', 'A CONSTRUIR', 'CONSTRUÍDA'
+                ) OR status IS NULL THEN 1 ELSE 0 END) AS outros_status
+        FROM
+            beneficiarios
+        WHERE
+            municipio IS NOT NULL AND municipio != ''
+        GROUP BY
+            municipio
+        ORDER BY
+            municipio;
+        """
+        cursor.execute(query)
+        registros = cursor.fetchall()
+        dados_consolidados = [dict(registro) for registro in registros]
+
+        logging.info("API: Dados consolidados (v3) gerados com sucesso.")
+        return dados_consolidados
+    except sqlite3.Error as e:
+        logging.error(f"API: Erro ao gerar dados consolidados (v3): {e}")
+        return JSONResponse(status_code=500, content={"error": "Erro interno."})
+    finally:
+        if conexao:
+            conexao.close()
+            logging.info("API: Conexão do consolidado (v3) fechada.")
+
 
 # --- Endpoint para Favicon ---
 

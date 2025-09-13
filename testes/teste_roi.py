@@ -2,7 +2,8 @@ import cv2
 import easyocr
 
 # --- CONFIGURAÇÕES ---
-NOME_IMAGEM = 'teste.png' # Use a sua imagem de teste original
+NOME_IMAGEM = 'teste.png'
+# Use a sua imagem de teste original
 
 # Coordenadas (x, y, w, h) para o campo "Nome completo"
 # X = Distância da borda esquerda
@@ -12,7 +13,8 @@ NOME_IMAGEM = 'teste.png' # Use a sua imagem de teste original
 # AJUSTE ESTES VALORES OLHANDO SUA IMAGEM EM UM EDITOR COMO O PAINT
 X_NOME = 180
 Y_NOME = 50
-W_NOME = 770 # Largura (Width)
+W_NOME = 770
+# Largura (Width)
 H_NOME = 45  # Altura (Height)
 
 # --- CÓDIGO ---
@@ -38,7 +40,11 @@ else:
     print("\n" + "="*30)
     print("🔍 TEXTO EXTRAÍDO DO RECORTE:")
     print("="*30)
-    print(resultado)
+    if resultado:
+        for texto in resultado:
+            print(texto)
+    else:
+        print("Nenhum texto encontrado no recorte.")
 
     # Opcional: Mostra a imagem do recorte para verificação
     cv2.imshow("Recorte do Nome", roi_nome)

@@ -20,7 +20,8 @@ table {
     font-size: 1.1rem;
 }
 
-th, td {
+th,
+td {
     padding: 15px;
     text-align: center;
     vertical-align: middle;
@@ -29,19 +30,19 @@ th, td {
     text-overflow: ellipsis;
 }
 
-header{
+header {
     background-color: #007bff;
     color: white;
 }
 
-footer{
+footer {
     background-color: #007bff;
     padding: 15px;
     color: white;
     text-align: center;
 }
 
-footer nav{
+footer nav {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -54,7 +55,29 @@ footer a {
     font-size: 1rem;
 }
 
-footer a:hover{
+footer a:hover {
     text-decoration: underline;
 }
 
+/* Estilos para os Cartões do Dashboard */
+.kpi-number {
+    font-size: 3rem;
+    /* Tamanho grande para o número */
+    font-weight: 700;
+    /* Deixa o número em negrito */
+}
+
+.kpi-label {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.9;
+    /* Deixa o texto do rótulo um pouco mais suave */
+}
+
+.grafico-container {
+    position: relative;
+    max-width: 900px;
+    /* Define uma largura máxima para o gráfico */
+    margin: 40px auto;
+    /* Centraliza o container na página com margens */
+}

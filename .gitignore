@@ -1,0 +1,23 @@
+# Ambiente Virtual do Python
+venv/
+
+# Arquivos de cache do Python
+__pycache__/
+*.pyc
+
+# Arquivos de checkpoint do Jupyter Notebook
+.ipynb_checkpoints/
+
+# Planilhas e arquivos de dados sensíveis
+# Substitua 'sua_planilha.xlsx' pelo nome exato do seu arquivo
+sua_planilha.xlsx
+*.csv
+historico.json
+
+# Pastas de uploads ou saídas de scripts
+uploads/
+prints_erros/
+
+# Arquivos de configuração local (se houver)
+.env
+config.ini
